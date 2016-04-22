@@ -1,0 +1,7 @@
+{% extends 'ShoefonyCmsBundle::Layout.html.twig' %}
+{% block title %}{{ parent() }} | {{ status_text }}{% endblock %}
+
+{% block contentBody %}
+    <h1>Oops! Un erreur a eu lieu</h1>
+    <h2>{{ status_code }} {{ status_text }}</h2>
+{% endblock %}

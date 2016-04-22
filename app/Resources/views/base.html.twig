@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/shoefonycms/css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/shoefonycms/css/heroic-features.css') }}">
+        {% endblock %}
+
+        
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; Shoe-fony {{ "now"|date("Y") }}</p>
+                    </div>
+                </div>
+            </footer>
+
+        {% block javascripts %}
+        <script src="{{ asset('bundles/shoefonycms/js/jquery.js') }}" type="text/javascript" charset="utf-8"></script>
+        <script src="{{ asset('bundles/shoefonycms/js/bootstrap.js') }}" type="text/javascript" charset="utf-8"></script>
+        {% endblock %}
+    </body>
+</html>

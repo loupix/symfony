@@ -1,0 +1,8 @@
+					<form class="navbar-form navbar-right" action="{{ path('shoefony_store_recherche') }}" method="POST" {{ form_enctype(form) }}>
+                        <div class="form-group">
+                        	{{ form_errors(form.title) }}
+		        			{{ form_widget(form.title, {'attr':{'class':'form-control', 'placeholder':'Rechercher'}}) }}
+		        			{{ form_rest(form) }}
+                        </div>
+                        <button type="submit" class="btn btn-success">OK</button>
+                    </form>

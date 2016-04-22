@@ -1,0 +1,73 @@
+{% extends 'ShoefonyCmsBundle::Layout.html.twig' %}
+
+
+{% block title %}
+{% if brand %}
+{{ parent() }} | {{ brand.title }}
+{% else %}
+{{ parent() }} | Tout les produits
+{% endif %}
+{% endblock %}
+
+{% block contentBody %}
+<!-- Page Content -->
+        <div class="container">
+
+            <div class="row">
+
+	            {% include 'ShoefonyStoreBundle:Partial:marques.html.twig' with {'brands':brands, 'brand':brand} %}
+
+	            <div class="col-md-9">
+
+	            	<p class="lead">Résultat de votre recherche</p>
+					<div class="row text-center">
+	            		{% for product in products %}
+
+		                <div class="col-md-4 col-sm-6 hero-feature">
+		                    <div class="thumbnail">
+		                        <img src="{{ asset(product.image.url)}}" alt="Nom du produit">
+		                        <div class="caption">
+		                            <h3>{{ product.title }}</h3>
+		                            <p>{{ product.description | raw }}</p>
+		                            <p>
+		                                <span class="badge">{{ product.price }} €</span> <a href="{{ path ('shoefony_store_produit', {id:product.id, slug:product.slug}) }}" class="btn btn-default">Voir la fiche</a>
+		                            </p>
+		                        </div>
+		                    </div>
+		                </div>
+
+		                {% endfor %}
+
+
+	                </div>
+
+	                <div class="row text-center">
+
+	                	<nav>
+							<ul class="pagination pagination-lg">
+						    	<li>
+						      		<a href="#" aria-label="Précédent">
+						        		<span aria-hidden="true">&laquo;</span>
+						      		</a>
+						    	</li>
+						    	<li class="active"><a href="#">1</a></li>
+						    	<li><a href="#">2</a></li>
+						    	<li><a href="#">3</a></li>
+						    	<li><a href="#">4</a></li>
+						    	<li><a href="#">5</a></li>
+						    	<li>
+						      		<a href="#" aria-label="Suivant">
+						        		<span aria-hidden="true">&raquo;</span>
+						      		</a>
+						    	</li>
+						  	</ul>
+						</nav>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+            <hr>
+{% endblock %}

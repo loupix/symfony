@@ -1,0 +1,27 @@
+{% extends 'ShoefonyCmsBundle::Layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Tout les produits{% endblock %}
+
+{% block contentBody %}
+<!-- Page Content -->
+        <div class="container">
+
+            <div class="row">
+
+	            {% include 'ShoefonyStoreBundle:Partial:marques.html.twig' with {'brands':brands, 'brand':null} %}
+
+	            <div class="col-md-9">
+
+	            	<p class="lead">Nos produits " Toutes les marques "</p>
+
+	            	
+	            	{{ render(controller('ShoefonyStoreBundle:Store:partialProducts', {'col':3, 'brand':null, 'page':1})) }}
+
+	                
+
+	            </div>
+
+	        </div>
+
+            <hr>
+{% endblock %}

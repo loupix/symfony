@@ -1,0 +1,39 @@
+{% extends 'ShoefonyCmsBundle::Layout.html.twig' %}
+
+{% block title %}{{ parent() }} | {{ product.title }}{% endblock %}
+
+{% block contentBody %}
+ <!-- Page Content -->
+        <div class="container">
+
+            <div class="row">
+
+	            {% include 'ShoefonyStoreBundle:Partial:marques.html.twig' with {'brands':brands, 'brand':product.brand} %}
+
+	            <div class="col-md-9">
+
+	            	<p class="lead">Fiche descriptive " Mon produit " <a href="{{ path('shoefony_store_products') }}" class="btn btn-default pull-right">Retour aux produits</a></p>
+	            	
+	            	<div class="row">
+
+		                <div class="thumbnail">
+                    		<img class="img-responsive" src="{{ asset(product.image.url) }}" alt="">
+                    		<div class="caption-full">
+                        		<h4 class="pull-right"><span class="badge">{{ product.price }} €</span></h4>
+                        		<h3>{{ product.title }}</h3>
+                        		<p>
+                        			{{ product.description | raw }}
+                        		</p>
+                    		</div>
+                		</div>	
+
+                		{{ render(controller('ShoefonyStoreBundle:Store:partialOpinions', {'product':product})) }}         
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+            <hr>
+{% endblock %}

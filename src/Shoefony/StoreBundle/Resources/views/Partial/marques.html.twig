@@ -1,0 +1,9 @@
+				<div class="col-md-3">
+	                <p class="lead">Nos marques</p>
+	                <div class="list-group">
+	                    <a href="{{ path('shoefony_store_homepage') }}" class="list-group-item {% if not brand %}active{% endif %}">Toutes les marques</a>
+	                    {% for brandCat in brands %}
+	                    <a href="{{ path('shoefony_store_brand', {id:brandCat.id, slug:brandCat.title|escape}) }}" class="list-group-item {% if brand==brandCat %}active{% endif %}">{{ brandCat.title }}</a>
+	                    {% endfor %}
+	                </div>
+	            </div>
